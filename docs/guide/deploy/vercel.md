@@ -33,8 +33,8 @@ example: suppose you need `example.is-an.app`
 
 ## Steps
 ### Fork this repo
-1. Fork [SubConv](https://github.com/SubConv/SubConv). If you need ZJU's configuration, fork [SubConv-4-ZJU](https://github.com/SubConv/SubConv-4-ZJU). You can open it in a new tab.
-2. (optional) modify the configuration file `config.yaml`. For detailed configuration items, please refer to [Configuration](../configuration/overview)
+1. Fork [SubConv](https://github.com/SubConv/SubConv).
+2. If you need custom runtime settings, create `config.yaml` in your forked repository and edit it there. For detailed template items, please refer to [Configuration](../configuration/overview)
 
 ### Deploy SubConv
 Then you should deploy this on Vercel and add you own domain (I call this **sun-conv's domain**). If you are familiar with Vercel, go ahead and skip this part.  

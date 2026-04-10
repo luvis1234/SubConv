@@ -1,12 +1,28 @@
 # Configuration
 
-The configuration of this program uses the YAML file format. The configuration file is `config.yaml`, located in the root directory of the program. An example can be found at [config.yaml](https://github.com/SubConv/SubConv/blob/main/config.yaml).
+Runtime settings are described by `config.yaml.example` in the repository root. If you want to customize them, create `config.yaml` in your own deployment or fork. The runtime templates live in the root `template/` directory as `template/zju.yaml` and `template/general.yaml`.
 
-If you are running from a source checkout, you can generate the default configuration file with `uv run python api.py -G default > config.yaml`. If you need the ZJU configuration file, use `uv run python api.py -G zju > config.yaml`.
+The most important setting is `DEFAULT_TEMPLATE`, which defaults to `zju`. When the `template` query parameter is omitted, the server uses the template selected by `DEFAULT_TEMPLATE`.
 
-If you are running a released binary, you can use `./api -G default > config.yaml` or `./api -G zju > config.yaml` instead.
+If the default template file is missing locally, startup stops with an error.
 
-## Configuration Items
+If you are running from a source checkout, put your changes in `config.yaml`. If you are running a released binary, keep `config.yaml.example` next to `api`, and add `config.yaml` when you need custom runtime settings.
+
+## Runtime Config Items
+
+- `HOST`: the bind address of the backend process
+- `PORT`: the listening port of the backend process
+- `DEFAULT_TEMPLATE`: the template used when `/sub` or `/proxy` omits the `template` query parameter
+
+Example `config.yaml`:
+
+```yaml
+HOST: 0.0.0.0
+PORT: 8080
+DEFAULT_TEMPLATE: zju
+```
+
+## Template File Items
 
 - `HEAD`: Configuration before the node information, such as
     ```yaml

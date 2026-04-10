@@ -8,7 +8,7 @@ It's user-friendly and easy to use.
 
 It is easy to deploy on [Vercel](https://vercel.com), with Docker, or on your own VPS.
 
-We provide configuration files for general users and ZJU users.
+We provide built-in `zju` and `general` templates, with `zju` used by default.
 
 ## Screenshots
 
@@ -25,4 +25,4 @@ We provide configuration files for general users and ZJU users.
 - Support multiple airpots
 - Display remaining traffic and total traffic (only useful when you use a single airport, requires your airport and Clash to support it at the same time, Clash for Windows, Clash Verge, Stash, Clash Meta for Android, etc. are known to support it)
 - Expose an API that converts subscriptions into proxy-provider output
-- Support configuration file
+- Support template files

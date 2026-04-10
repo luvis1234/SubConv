@@ -1,5 +1,5 @@
 # Proxy Groups
-Except for the `🚀 节点选择` group, all proxy-groups can be customized through the configuration file `config.yaml`. proxy-groups are generated based on `CUSTOM_PROXY_GROUP` in `config.yaml`.  
+Except for the `🚀 节点选择` group, all proxy-groups can be customized through the YAML files under `template/`. Proxy-groups are generated based on `CUSTOM_PROXY_GROUP` in the selected template file.  
 
 ## customize proxy-groups
 Here is an example of `custom_proxy_group`:

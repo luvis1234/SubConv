@@ -4,24 +4,18 @@ First make sure you have installed Docker and Docker Compose.
 
 ## Steps
 
-1. Create a directory on your server, for example `~/subconv`.
-2. Create a `docker-compose.yml` file in that directory with the following content:
+1. Clone this repository on your server:
 
-    ```yaml
-    version: '3'
-    services:
-      subconv:
-        image: wouisb/subconv:latest
-        container_name: subconv
-        restart: unless-stopped
-        ports:
-          - "8080:8080"
-        volumes:
-          - ./config.yaml:/app/config.yaml
+    ```bash
+    git clone --depth=1 https://github.com/SubConv/SubConv.git
+    cd SubConv
     ```
 
-    > ***Note***: Here the first `8080` is the port you want to map to, you can modify it as needed.
+2. Run `cp config.yaml.example config.yaml` to create the runtime config file (required by `docker-compose.yml`).
 
-3. Run `docker compose run --rm -v ./config.yaml:/app/config.yaml subconv -G default` to generate the default configuration file in the directory. You can modify it as needed. If you need to use ZJU's configuration file, you can use `docker compose run --rm -v ./config.yaml:/app/config.yaml subconv -G zju` to generate the ZJU configuration file. For detailed configuration items, please refer to [Configuration](../configuration/overview).
-4. Run `docker compose up -d` to start the service.
-5. Enjoy
+3. Put your runtime changes in `config.yaml`, then adjust `template/zju.yaml` or `template/general.yaml` as needed. The container uses the template named by `DEFAULT_TEMPLATE`, which is `zju` by default.
+
+4. Review the bundled `docker-compose.yml` if you want to change the published port or the mounted config/template paths. By default it mounts `./config.yaml:/app/config.yaml` and `./template:/app/template`, so `config.yaml` must exist before you run `docker compose up`.
+
+5. Run `docker compose up -d --build` to start the service.
+6. Enjoy
