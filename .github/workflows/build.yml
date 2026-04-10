@@ -56,7 +56,7 @@ jobs:
 
       - name: Build Executable
         run: |
-          uv run python -m nuitka --onefile api.py
+          uv run python -m nuitka --onefile --assume-yes-for-downloads api.py
 
       - name: Build Frontend
         working-directory: mainpage
